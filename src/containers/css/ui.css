@@ -1,0 +1,64 @@
+.ui {
+    height: 10%;
+    border-top: var(--second-color) 2px solid;
+
+    .quiz {
+        display: none;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        padding: 0 3em;
+
+        &.active {
+            display: flex;
+        }
+
+        .show {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: underline;
+            color: var(--first-color);
+            cursor: pointer;
+        }
+        .next {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: underline;
+            color: var(--first-color);
+            cursor: pointer;
+        }
+    }
+    .editor {
+        display: none;
+        align-items: center;
+        justify-content: flex-end;
+
+        &.active {
+            display: flex;
+        }
+
+        .clean {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: underline;
+            color: var(--first-color);
+            cursor: pointer;
+        }
+    }
+    .results {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        .close {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: underline;
+            color: var(--first-color);
+            cursor: pointer;
+        }
+    }
+}

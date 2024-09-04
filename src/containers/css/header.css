@@ -1,0 +1,57 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 15%;
+    margin-bottom: 5%;
+
+    .title {
+        font-size: 10em;
+        line-height: .9;
+        filter: drop-shadow(.05em .05em 0px rgb(0, 0, 0, 0.4));
+    }
+
+    .nav {
+        display: block;
+        //width: 8.5em;
+        //height: 8.5em;
+
+        & li {
+            display: inline-block;
+            width: 4em;
+            height: 4em;
+            float: right;
+            filter: drop-shadow(0.4em 0.4em 0px rgb(0, 0, 0, 0.4));
+            cursor: pointer;
+            margin-right: .5em;
+
+            & svg {
+                width: 100%;
+                height: 100%;
+                fill: var(--first-color);
+            }
+        }
+
+        .settings {
+            //margin: 0 0 .25em .25em;
+        }
+
+        .github {
+            //margin: 0 .25em .25em 0;
+        }
+
+        .faq {
+            //margin: .25em 0 0 .25em;
+        }
+    }
+}
+
+@media (orientation: portrait) {
+    .header {
+        .nav {
+            & li {
+                margin-bottom: 1em;
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+.quiz {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90%;
+    overflow: scroll;
+    padding: 0 2em;
+    visibility: hidden;
+
+    &.active {
+        display: block;
+        visibility: visible;
+    }
+
+    .question-num {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: var(--second-color);
+        font-size: 20em;
+        font-weight: bold;
+        translate: -50% -50%;
+        z-index: 0;
+    }
+}

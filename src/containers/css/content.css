@@ -1,0 +1,128 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    height: 75%;
+    width: 100%;
+
+    & form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 50%;
+        padding-right: 4em;
+
+        .input-block {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1em;
+
+            & label {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                font-size: 2em;
+                font-weight: bold;
+                width: 80%;
+                color: var(--second-color);
+                background: var(--first-color);
+                border-radius: 5em;
+                padding: .5em .5em .5em 1em;
+                cursor: text;
+                filter: drop-shadow(0.2em 0.3em 0px rgb(0, 0, 0, 0.4));
+                transition: all .25s ease;
+
+                &.lock {
+                    background: rgb(0, 0, 0, 0.2);
+                }
+
+                & span {
+
+                }
+
+                & input {
+                    height: 100%;
+                    width: 100%;
+                    font-size: 1em;
+                    color: var(--second-color);
+                    padding-left: .1em;
+                }
+            }
+        }
+        .btn-block {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+
+            .btn {
+                display: flex;
+                flex-direction: column;
+                font-family: Arial, serif;
+                font-size: 1em;
+                color: var(--first-color);
+                filter: drop-shadow(0.4em 0.4em 0px rgb(0, 0, 0, 0.4));
+                transition: all .25s ease;
+
+                &.lock {
+                    color: rgb(0, 0, 0, 0.2);
+                }
+
+                button {
+                    color: inherit;
+                    font-size: 8em;
+                    font-weight: bold;
+                    line-height: .8;
+                    cursor: pointer;
+
+                    &:hover {
+
+                    }
+
+
+                }
+                span {
+                    font-size: 2em;
+                }
+            }
+        }
+    }
+
+    .quiz-data {
+        width: 50%;
+        background: rgb(0, 0, 0, 0.2);
+        border-radius: 2em;
+        overflow-y: scroll;
+
+        .quiz-block {
+            width: 100%;
+            margin: 2em 0;
+        }
+    }
+}
+
+@media (orientation: portrait) {
+    .content {
+        flex-direction: column;
+        justify-content: space-between;
+        height: 80%;
+
+        & form {
+            width: 100%;
+            height: 25%;
+            padding: 0 1em;
+
+            .input-block {
+                & label {
+                    width: 100%;
+                }
+            }
+        }
+
+        .quiz-data {
+            width: 100%;
+            height: 70%;
+            padding: 0 2em;
+        }
+    }
+}

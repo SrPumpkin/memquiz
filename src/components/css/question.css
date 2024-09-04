@@ -1,0 +1,82 @@
+.question-block {
+    margin-bottom: 2em;
+
+    .question {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-bottom: var(--first-color) 2px solid;
+        padding-bottom: .5em;
+
+        & h3 {
+            display: block;
+            font-size: 2em;
+            padding-left: .5em;
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: row;
+
+            & svg {
+                width: 100%;
+                height: 100%;
+                fill: var(--first-color);
+            }
+
+            & li {
+                margin-right: 1em;
+            }
+
+            .pen {
+                width: 2em;
+                cursor: pointer;
+            }
+
+            .trash {
+                width: 2em;
+                cursor: pointer;
+            }
+        }
+
+        .num {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            translate: -50% 50%;
+            width: 2em;
+            height: 2em;
+            font-size: 1em;
+            font-weight: bold;
+            background: var(--second-color);
+            color: var(--first-color);
+            border-radius: 4em;
+            border: var(--first-color) 2px solid;
+            text-align: center;
+        }
+    }
+
+    .answer {
+        font-family: Arial, serif;
+        font-weight: bold;
+        background: var(--light-color);
+        color: var(--second-color);
+        border-radius: 0 0 1em 1em;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 1s ease;
+
+        &.active {
+            min-height: 10px;
+            max-height: 200px;
+        }
+
+        & p {
+            padding: 1em;
+        }
+    }
+}

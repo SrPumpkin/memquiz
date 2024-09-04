@@ -1,0 +1,12 @@
+.editor {
+    display: none;
+    height: 90%;
+    overflow: scroll;
+    padding: 0 2em;
+    visibility: hidden;
+
+    &.active {
+        display: block;
+        visibility: visible;
+    }
+}

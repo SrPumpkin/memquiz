@@ -1,0 +1,50 @@
+.quiz-question {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 100%;
+    padding: 1em 0;
+    z-index: 1;
+
+    &.active {
+        display: flex;
+    }
+
+    .question-block {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .q {
+            font-size: 3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            padding-bottom: 1em;
+        }
+        .a-block {
+            text-align: center;
+
+            .a {
+                font-size: 2em;
+                background: var(--first-color);
+                //text-decoration: line-through 1em;
+
+                &.show {
+                    //text-decoration: none;
+                    background: none;
+                }
+            }
+        }
+    }
+
+    .show-answer {
+        color: var(--first-color);
+        font-size: 1.5em;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
