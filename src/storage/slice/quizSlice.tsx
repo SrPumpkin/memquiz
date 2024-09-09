@@ -10,6 +10,7 @@ interface Quiz {
     quiz: boolean,
     results: boolean,
     editor: boolean,
+    info: boolean,
     curQuestion: number,
     questions: Array<Questions>,
 }
@@ -18,6 +19,7 @@ let initialState: Quiz = {
     quiz: false,
     results: false,
     editor: true,
+    info: false,
     curQuestion: 0,
     questions: [],
 }
@@ -42,6 +44,9 @@ export const quizSlice = createSlice({
                     break;
                 case "editor":
                     state.editor = !state.editor
+                    break;
+                case "info":
+                    state.info = !state.info
                     break;
             }
         },

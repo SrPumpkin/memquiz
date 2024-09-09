@@ -1,0 +1,37 @@
+.info {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 3em;
+    background: #271839;
+
+    &.active {
+        display: block;
+    }
+
+    & .decor {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: 40%;
+        fill: var(--second-color);
+        z-index: 0;
+    }
+
+    & h3 {
+        position: relative;
+        font-size: 4em;
+        padding-bottom: .1em;
+        z-index: 1;
+    }
+
+    & p {
+        position: relative;
+        font-size: 1.5em;
+        padding-bottom: 1em;
+        z-index: 1;
+    }
+}

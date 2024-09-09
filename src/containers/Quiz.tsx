@@ -10,7 +10,6 @@ export default function Quiz() {
         <div className={`quiz ${quiz.quiz ? "active" : ""}`}>
             <span className="question-num">{quiz.curQuestion + 1}/{quiz.questions.length}</span>
             {quiz.questions.map((q, i) => {
-                console.log(q)
                 return <QuizQuestion
                     key={i}
                     q={q.q}

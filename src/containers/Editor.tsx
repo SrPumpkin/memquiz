@@ -10,7 +10,7 @@ export default function Editor() {
 
     return(
         <ul className={`editor ${quiz.editor ? "active" : ""}`}>
-            {questions.map((q, i) => <li className="quiz-block" key={i}><Question question={q.q} answer={q.a} index={i}/></li>)}
+            {questions.map((q, i) => <li className="quiz-li" key={i}><Question question={q.q} answer={q.a} index={i}/></li>)}
         </ul>
     )
 }

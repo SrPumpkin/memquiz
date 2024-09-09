@@ -24,6 +24,8 @@
   --light-color: #EBDBFF;
   --dark-color: #40275D;
 
+  --decor-color: #271839;
+
   --first-color: var(--light-color);
   --second-color: var(--dark-color);
 

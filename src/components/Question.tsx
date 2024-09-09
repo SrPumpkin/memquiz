@@ -29,7 +29,6 @@ export default function Question({question, answer, index}: Props) {
     }
 
     const handleRemove = () => {
-        console.log(index)
         dispatch(removeQuestion(index))
     }
 

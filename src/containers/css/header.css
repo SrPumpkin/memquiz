@@ -8,7 +8,7 @@
     .title {
         font-size: 10em;
         line-height: .9;
-        filter: drop-shadow(.05em .05em 0px rgb(0, 0, 0, 0.4));
+        filter: drop-shadow(.05em .05em 0px var(--decor-color));
     }
 
     .nav {
@@ -21,7 +21,7 @@
             width: 4em;
             height: 4em;
             float: right;
-            filter: drop-shadow(0.4em 0.4em 0px rgb(0, 0, 0, 0.4));
+            filter: drop-shadow(0.4em 0.4em 0px var(--decor-color));
             cursor: pointer;
             margin-right: .5em;
 
@@ -42,7 +42,6 @@
         }
 
         .faq {
-            display: none;
             //margin: .25em 0 0 .25em;
         }
     }
