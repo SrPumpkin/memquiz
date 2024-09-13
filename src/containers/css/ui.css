@@ -46,14 +46,6 @@
         &.active {
             display: flex;
         }
-
-        .clean {
-            font-size: 1.5em;
-            font-weight: bold;
-            text-decoration: underline;
-            color: var(--first-color);
-            cursor: pointer;
-        }
     }
     .results-ui {
         display: none;

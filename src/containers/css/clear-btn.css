@@ -1,0 +1,38 @@
+.btn-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & svg {
+        height: 1em;
+        overflow: unset;
+        margin-right: .5em;
+
+        & circle {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 0, 350;
+            stroke: var(--first-color);
+            stroke-width: 1em;
+            rotate: -90deg;
+            fill: none;
+            transition: all 2.5s linear;
+        }
+    }
+
+    .progress-circle.clean-on {
+        & svg {
+
+            & circle {
+                stroke-dasharray: 350, 350;
+            }
+        }
+    }
+
+    .clean {
+        font-size: 1.5em;
+        font-weight: bold;
+        text-decoration: underline;
+        color: var(--first-color);
+        cursor: pointer;
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import {useAppDispatch, useAppSelector} from "../storage/hooks";
-import {cleanQuestions} from "../storage/slice/questionsSlice";
 import {clearQuestionQuiz, setCurQuestion, toggleState} from "../storage/slice/quizSlice";
+import ClearBtn from "./ClearBtn";
 
 import "./css/ui.css"
 
@@ -21,10 +21,6 @@ export default function UI() {
         if (quiz.questions.length === quiz.curQuestion + 1) handleStop()
     }
 
-    const handleClean = () => {
-        dispatch(cleanQuestions())
-    }
-
     const handleClose = () => {
         dispatch(toggleState("results"))
     }
@@ -40,7 +36,7 @@ export default function UI() {
                 <button className="next" onClick={handleNext}>{quiz.questions.length === quiz.curQuestion + 1 ? "Finish quiz" : "Next Question"}</button>
             </div>
             <div className={`editor-ui ${quiz.editor && "active"}`}>
-                <button className="clean" onClick={handleClean}>Clean all</button>
+                <ClearBtn duration={2500} />
             </div>
             <div className={`results-ui ${quiz.results && "active"}`}>
                 <button className="close" onClick={handleClose}>Close</button>
