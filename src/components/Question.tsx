@@ -1,9 +1,9 @@
 import React, {useLayoutEffect, useRef, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../storage/hooks";
 import {removeQuestion, updateQuestion} from "../storage/slice/questionsSlice";
+import {setCaretPos} from "../utils/setCaretPos";
 
 import "./css/question.css"
-import {setCaretPos} from "../utils/setCaretPos";
 
 interface Props {
     question: string,
@@ -16,11 +16,10 @@ export default function Question({question, answer, index}: Props) {
     const data = useAppSelector(state => state.questions[index])
     const dispatch = useAppDispatch()
 
-    const editorRef = useRef<HTMLParagraphElement>(null)
+    const editorRef = useRef<HTMLParagraphElement>(null!)
 
     useLayoutEffect(() => {
-        // @ts-ignore
-        const editor: HTMLParagraphElement = editorRef.current;
+        const editor = editorRef.current;
         setCaretPos(editor)
     }, [data.a]);
 
@@ -41,9 +40,9 @@ export default function Question({question, answer, index}: Props) {
     }
 
     return(
-        <div className="question-block">
+        <div className={`question-block ${editorState ? "editing" : ""}`}>
             <div className="question">
-                <h3>{data.q}</h3>
+                <h3 contentEditable={editorState}>{data.q}</h3>
                 <ul className="nav">
                     <li className="pen" onClick={handleEdit}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg>
@@ -55,7 +54,7 @@ export default function Question({question, answer, index}: Props) {
                 <div className="num">{index + 1}</div>
             </div>
             <div className={`answer ${editorState ? "active" : ""}`}>
-                <p ref={editorRef} contentEditable={true} onInput={handleEditor} suppressContentEditableWarning={true}>{data.a}</p>
+                <p ref={editorRef} contentEditable={editorState} onInput={handleEditor} suppressContentEditableWarning={true}>{data.a}</p>
             </div>
         </div>
     )

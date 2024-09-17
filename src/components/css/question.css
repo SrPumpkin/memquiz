@@ -1,5 +1,16 @@
 .question-block {
     margin-bottom: 2em;
+    border: dashed .0em;
+    border-radius: 1.2em;
+
+    &.editing {
+        border: dashed .2em;
+
+        .pen svg {
+                transform-origin: 0% 90%;
+                animation: writer 1.5s linear infinite;
+        }
+    }
 
     .question {
         position: relative;
@@ -7,12 +18,13 @@
         flex-direction: row;
         justify-content: space-between;
         border-bottom: var(--first-color) 2px solid;
-        padding-bottom: .5em;
+        padding: .5em 0;
 
         & h3 {
             display: block;
             font-size: 2em;
             padding-left: .5em;
+            width: fill-available;
         }
 
         .nav {
@@ -20,9 +32,9 @@
             flex-direction: row;
 
             & svg {
+                fill: var(--first-color);
                 width: 100%;
                 height: 100%;
-                fill: var(--first-color);
             }
 
             & li {
@@ -79,4 +91,13 @@
             padding: 1em;
         }
     }
+}
+
+@keyframes writer {
+    0% {transform: rotate(-0deg) translate(0, 0);}
+    20% {transform: rotate(-15deg) translate(0.1em, 0);}
+    40% {transform: rotate(-5deg) translate(0.2em, 0);}
+    60% {transform: rotate(-15deg) translate(0.3em, 0);}
+    80% {transform: rotate(-5deg) translate(0.4em, 0);}
+    100% {transform: rotate(-0deg) translate(0, 0);}
 }
