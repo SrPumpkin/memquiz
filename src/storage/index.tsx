@@ -1,11 +1,13 @@
 import {configureStore} from "@reduxjs/toolkit";
 import questionsSlice from "./slice/questionsSlice";
 import quizSlice from "./slice/quizSlice";
+import settingsSlice from "./slice/settingsSlice";
 
 export const storage = configureStore({
     reducer: {
         questions: questionsSlice,
         quiz: quizSlice,
+        settings: settingsSlice,
     }
 })
 

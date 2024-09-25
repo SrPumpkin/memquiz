@@ -1,14 +1,16 @@
 import React from "react";
 import {useAppDispatch, useAppSelector} from "../storage/hooks";
 import {addQuestion} from "../storage/slice/questionsSlice";
-import {addQuestionQuiz, toggleState} from "../storage/slice/quizSlice";
+import {addQuestionQuiz, toggleQuiz} from "../storage/slice/quizSlice";
 import {math} from "../utils/mathFun";
 
 import "./css/question-form.css"
+import {setAmountQuestion} from "../storage/slice/settingsSlice";
 
 export default function QuestionForm() {
     const questions = useAppSelector(state => state.questions)
     const quiz = useAppSelector(state => state.quiz)
+    const settings = useAppSelector(state => state.settings)
     const dispatch = useAppDispatch()
 
     const handleAdd = (event: React.FormEvent<HTMLFormElement>) => {
@@ -18,6 +20,7 @@ export default function QuestionForm() {
         const formData = new FormData(event.currentTarget)
         const fields = Object.fromEntries(formData)
 
+        if (settings.amountQuestion === 0) dispatch(setAmountQuestion(1))
         dispatch(addQuestion({q: fields.question, a: fields.answer}))
         event.currentTarget.reset()
     }
@@ -27,13 +30,12 @@ export default function QuestionForm() {
 
         if (quiz.quiz || questions.length === 0) return;
 
-        dispatch(toggleState("quiz"))
-        dispatch(toggleState("editor"))
+        dispatch(toggleQuiz())
 
         let questionsCopy  = [...questions]
-        let quantity = questions.length < 10 ? questions.length - 1 : 9
+        let quantity = settings.amountQuestion
 
-        for (let i = 0; i <= quantity; i++) {
+        for (let i = 0; i <= quantity - 1; i++) {
             let rand = Math.floor(math.rand(0, questionsCopy.length))
             dispatch(addQuestionQuiz(questionsCopy[rand]))
             questionsCopy.splice(rand, 1)
@@ -59,7 +61,7 @@ export default function QuestionForm() {
                 </div>
                 <div className={`btn ${quiz.quiz || questions.length === 0 ? "lock" : ""}`}>
                     <button onClick={handleStart}>Start</button>
-                    <span>quiz with {questions.length} questions</span>
+                    <span>quiz with {settings.amountQuestion} questions</span>
                 </div>
             </div>
         </form>

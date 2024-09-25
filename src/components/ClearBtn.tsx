@@ -3,6 +3,7 @@ import {useAppDispatch} from "../storage/hooks";
 import {cleanQuestions} from "../storage/slice/questionsSlice";
 
 import "./css/clear-btn.css"
+import {setAmountQuestion} from "../storage/slice/settingsSlice";
 
 interface Props {
     duration: number
@@ -19,6 +20,7 @@ export default function ClearBtn({duration}: Props) {
 
         let timeout = setTimeout(() => {
             dispatch(cleanQuestions())
+            dispatch(setAmountQuestion(0))
         }, duration)
 
         setTimeoutState(timeout)

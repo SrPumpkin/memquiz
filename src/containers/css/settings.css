@@ -1,0 +1,69 @@
+.settings {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    padding: 3em;
+    background: #271839;
+    z-index: 2;
+
+    &.active {
+        display: block;
+    }
+
+    & .decor {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        width: 40%;
+        fill: var(--second-color);
+        z-index: 0;
+    }
+
+
+
+    .settings-block {
+        position: relative;
+        z-index: 1;
+
+        & h3 {
+            position: relative;
+            font-size: 4em;
+            padding-bottom: .3em;
+            z-index: 1;
+        }
+
+        .settings-amount {
+            margin-bottom: 1em;
+
+            & h4 {
+                font-size: 1.5em;
+                font-weight: 100;
+            }
+
+            .questions-amount {
+                .amount-input {
+                    appearance:none;
+                    width: 80%;
+                    height: .25em;
+                    outline: none;
+                    background-color: var(--first-color);
+                    border-radius: .25em;
+
+                    &::-webkit-slider-thumb {
+                        appearance: none;
+                        width: 1.5em;
+                        height: 1.5em;
+                        background-color: var(--second-color);
+                        border: .25em solid var(--first-color);
+                        border-radius: 1em;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,10 +1,13 @@
 .question-block {
     margin-bottom: 2em;
-    border: dashed .0em;
-    border-radius: 1.2em;
+    border: dashed .2em var(--second-color);
+    border-radius: 1.2em 1.2em 0 0;
+    transition: all .5s ease .5s;
 
     &.editing {
-        border: dashed .2em;
+        border-radius: 1.2em;
+        border: dashed .2em var(--first-color);
+        transition: all .5s ease;
 
         .pen svg {
                 transform-origin: 0% 90%;

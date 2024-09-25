@@ -18,7 +18,7 @@ export default function QuizQuestion({q, a, index, length, current}: Props) {
 
     return(
         <div className={`quiz-question ${current === index ? "active" : ""}`}>
-            <div className="question-block">
+            <div className="quiz-question-block">
                 <span className="q">{q}</span>
                 <div className="a-block">
                     <span className={`a ${answerState ? "show" : ""}`}>{a}</span>

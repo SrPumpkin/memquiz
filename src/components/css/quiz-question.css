@@ -12,10 +12,11 @@
         display: flex;
     }
 
-    .question-block {
+    .quiz-question-block {
         display: flex;
         align-items: center;
         flex-direction: column;
+        margin-bottom: 3em;
 
         .q {
             font-size: 3em;

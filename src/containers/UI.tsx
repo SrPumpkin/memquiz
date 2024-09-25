@@ -1,7 +1,7 @@
 import React from "react";
 import {useAppDispatch, useAppSelector} from "../storage/hooks";
-import {clearQuestionQuiz, setCurQuestion, toggleState} from "../storage/slice/quizSlice";
-import ClearBtn from "./ClearBtn";
+import {clearQuestionQuiz, setCurQuestion, toggleQuiz, closeData} from "../storage/slice/quizSlice";
+import ClearBtn from "../components/ClearBtn";
 
 import "./css/ui.css"
 
@@ -11,8 +11,7 @@ export default function UI() {
 
     const handleStop = () => {
         dispatch(clearQuestionQuiz())
-        dispatch(toggleState("quiz"))
-        dispatch(toggleState("editor"))
+        dispatch(toggleQuiz())
         dispatch(setCurQuestion(0))
     }
 
@@ -22,11 +21,7 @@ export default function UI() {
     }
 
     const handleClose = () => {
-        dispatch(toggleState("results"))
-    }
-
-    const handleInfoUi = () => {
-        dispatch(toggleState("info"))
+        dispatch(closeData())
     }
 
     return(
@@ -38,11 +33,8 @@ export default function UI() {
             <div className={`editor-ui ${quiz.editor && "active"}`}>
                 <ClearBtn duration={2500} />
             </div>
-            <div className={`results-ui ${quiz.results && "active"}`}>
+            <div className={`data-ui ${quiz.results || quiz.info || quiz.settings ? "active" : ""}`}>
                 <button className="close" onClick={handleClose}>Close</button>
-            </div>
-            <div className={`info-ui ${quiz.info && "active"}`}>
-                <button className="close" onClick={handleInfoUi}>Close</button>
             </div>
         </div>
     )

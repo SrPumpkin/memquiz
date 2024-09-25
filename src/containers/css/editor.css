@@ -1,9 +1,11 @@
 .editor {
+    position: relative;
     display: none;
     height: 100%;
     overflow: scroll;
     padding: 0 2em;
     visibility: hidden;
+    z-index: 0;
 
     &.active {
         display: block;

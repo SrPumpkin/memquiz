@@ -8,6 +8,7 @@
     overflow: scroll;
     padding: 0 2em;
     visibility: hidden;
+    z-index: 1;
 
     &.active {
         display: block;

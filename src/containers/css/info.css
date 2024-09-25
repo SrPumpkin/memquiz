@@ -1,11 +1,12 @@
 .info {
-    display: none;
     position: absolute;
+    display: none;
     top: 0;
     left: 0;
     height: 100%;
     padding: 3em;
     background: #271839;
+    z-index: 2;
 
     &.active {
         display: block;

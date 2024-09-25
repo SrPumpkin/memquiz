@@ -3,7 +3,7 @@
     height: 10%;
     border-top: var(--second-color) 2px solid;
 
-    .quiz-ui, .editor-ui, .results-ui, .info-ui {
+    .quiz-ui, .editor-ui, .data-ui {
         position: absolute;
         top: 0;
         left: 0;
@@ -47,22 +47,7 @@
             display: flex;
         }
     }
-    .results-ui {
-        display: none;
-
-        &.active {
-            display: block;
-        }
-
-        .close {
-            font-size: 1.5em;
-            font-weight: bold;
-            text-decoration: underline;
-            color: var(--first-color);
-            cursor: pointer;
-        }
-    }
-    .info-ui {
+    .data-ui {
         display: none;
         flex-direction: row;
         justify-content: flex-end;
