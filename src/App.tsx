@@ -1,15 +1,17 @@
+import "./App.css";
+
 import Header from "./containers/Header";
 import Content from "./containers/Content";
-
-import './App.css';
+import ShaderBackground from "./components/ShaderBackground";
 
 function App() {
-  return (
-      <>
-          <Header />
-          <Content />
-      </>
-  );
+    return (
+        <div className="app-shell">
+            <ShaderBackground />
+            <Header />
+            <Content />
+        </div>
+    );
 }
 
 export default App;
