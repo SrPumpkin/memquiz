@@ -1,0 +1,174 @@
+.app-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1em;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-soft);
+    background: rgb(18 10 27 / 76%);
+    box-shadow: 0 12px 30px rgb(5 2 8 / 20%);
+    backdrop-filter: blur(18px);
+    font-size: 1em;
+
+    .brand-block {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        gap: 1.5em;
+
+        .brand-copy {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            gap: .4em;
+
+            & > strong {
+                color: var(--text);
+                font-size: 2em;
+                font-weight: 720;
+            }
+
+            & > span {
+                color: var(--text-faint);
+                font-family: var(--font-mono);
+                font-size: 1em;
+            }
+        }
+
+        .workspace-status {
+            display: inline-flex;
+            align-items: center;
+            min-height: 25px;
+            gap: .5em;
+            padding: 0 .5em;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--text-muted);
+            background: rgb(255 255 255 / 2%);
+            font-family: var(--font-mono);
+            font-size: 1em;
+
+            i {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--success);
+                box-shadow: 0 0 0 3px var(--success-soft);
+            }
+
+            &.workspace-status--live {
+                color: var(--light-color);
+                border-color: rgb(196 166 234 / 18%);
+                background: var(--accent-soft);
+
+                i {
+                    background: var(--accent);
+                    box-shadow: 0 0 0 3px var(--accent-soft);
+                    animation: status-pulse 1.8s ease-in-out infinite;
+                }
+            }
+
+            @media (max-width: 880px) {
+                display: none;
+            }
+        }
+    }
+
+    .header-nav {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        button,
+        a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 34px;
+            gap: .5em;
+            padding: 0 0.8em;
+            border: 1px solid transparent;
+            border-radius: var(--radius-xs);
+            color: var(--text-muted);
+            background: transparent;
+            font-size: 0.8em;
+            font-weight: 590;
+            transition: color 180ms ease, border-color 180ms ease, background-color 180ms ease;
+
+            &:hover:not(:disabled) {
+                color: var(--text-soft);
+                background: rgb(255 255 255 / 3%);
+            }
+
+            &.active {
+                color: var(--light-color);
+                border-color: var(--border);
+                background: var(--accent-soft);
+                box-shadow: inset 0 1px rgb(255 255 255 / 3%);
+
+                &::after {
+                    position: absolute;
+                    inset: auto 1em -1.9em;
+                    height: 1px;
+                    content: "";
+                    background: var(--accent);
+                    box-shadow: 0 0 10px rgb(196 166 234 / 55%);
+                }
+            }
+
+            &:disabled {
+                opacity: 0.32;
+            }
+        }
+
+        .header-nav__external {
+            width: 3em;
+            height: 3em;
+            padding: 0;
+            border-color: var(--border);
+
+            @media (max-width: 680px) {
+                margin-left: .5em;
+            }
+        }
+
+        @media (max-width: 680px) {
+            gap: 0;
+
+            button {
+                width: 36px;
+                padding: 0;
+
+                span {
+                    position: absolute;
+                    width: 1px;
+                    height: 1px;
+                    padding: 0;
+                    overflow: hidden;
+                    clip: rect(0, 0, 0, 0);
+                    white-space: nowrap;
+                    border: 0;
+                }
+
+                &.active::after {
+                    inset-inline: 8px;
+                }
+            }
+        }
+    }
+
+    @media (orientation: portrait) {
+
+    }
+}
+
+@keyframes status-pulse {
+    50% {
+        box-shadow: 0 0 0 6px rgb(196 166 234 / 4%);
+    }
+}
