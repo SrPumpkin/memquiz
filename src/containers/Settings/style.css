@@ -1,0 +1,173 @@
+.settings-overlay {
+    font-size: 1em;
+
+    .settings-window {
+        width: min(720px, 100%);
+
+        .settings-window__body {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            padding: 1em;
+            padding-top: 6em;
+
+            .session-size-setting {
+                padding: 1em;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-md);
+                background: rgb(255 255 255 / 2%);
+
+                .session-size-setting__header {
+                    display: grid;
+                    grid-template-columns: 2.8em minmax(0, 1fr) auto;
+                    align-items: start;
+                    gap: 0.8em;
+
+                    .session-size-setting__icon {
+                        display: grid;
+                        width: 2.8em;
+                        height: 2.8em;
+                        place-items: center;
+                        border: 1px solid var(--border);
+                        border-radius: var(--radius-sm);
+                        color: var(--accent);
+                        background: var(--accent-soft);
+                    }
+
+                    & > div {
+                        h3 {
+                            color: var(--text);
+                            font-size: 1em;
+                            font-weight: 650;
+                        }
+
+                        p {
+                            max-width: 450px;
+                            margin-top: .5em;
+                            color: var(--text-muted);
+                            font-size: 0.8em;
+                            line-height: 1.55;
+                        }
+                    }
+
+                    output {
+                        display: grid;
+                        min-width: 3.9em;
+                        height: 2.8em;
+                        padding: 0 0.8em;
+                        place-items: center;
+                        border: 1px solid var(--border-strong);
+                        border-radius: var(--radius-sm);
+                        color: var(--light-color);
+                        background: var(--accent-soft);
+                        font-family: var(--font-mono);
+                        font-size: 1.3em;
+
+                        @media (max-width: 540px) {
+                            grid-column: 1 / -1;
+                            width: 100%;
+                        }
+                    }
+
+                    @media (max-width: 540px) {
+                        grid-template-columns: 2.6em minmax(0, 1fr);
+                    }
+                }
+
+                .range-control {
+                    margin-top: 1em;
+
+                    .amount-input {
+                        width: 100%;
+                        height: 1.2em;
+                        margin: 0;
+                        appearance: none;
+                        outline: none;
+                        background: transparent;
+
+                        &::-webkit-slider-runnable-track {
+                            height: 0.4em;
+                            border-radius: 999px;
+                            background:
+                                linear-gradient(to right, var(--accent) var(--range-progress), rgb(235 219 255 / 8%) var(--range-progress));
+                        }
+
+                        &::-moz-range-track {
+                            height: 0.4em;
+                            border-radius: 999px;
+                            background:
+                                linear-gradient(to right, var(--accent) var(--range-progress), rgb(235 219 255 / 8%) var(--range-progress));
+                        }
+
+                        &::-webkit-slider-thumb {
+                            width: 1.1em;
+                            height: 1.1em;
+                            margin-top: -.5em;
+                            border: 0.2em solid var(--surface-elevated);
+                            border-radius: 50%;
+                            appearance: none;
+                            background: var(--light-color);
+                            box-shadow: 0 0 0 1px var(--accent), 0 0.3em 0.8em rgb(7 3 11 / 42%);
+                        }
+
+                        &::-moz-range-thumb {
+                            width: 0.8em;
+                            height: 0.8em;
+                            border: 0.2em solid var(--surface-elevated);
+                            border-radius: 50%;
+                            background: var(--light-color);
+                            box-shadow: 0 0 0 1px var(--accent), 0 0.3em 0.8em rgb(7 3 11 / 42%);
+                        }
+
+                        &:disabled {
+                            opacity: 0.3;
+                        }
+                    }
+
+                    .range-control__labels {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: .5em;
+                        color: var(--text-faint);
+                        font-family: var(--font-mono);
+                        font-size: 0.8em;
+                    }
+                }
+
+                @media (max-width: 540px) {
+                    padding: 0.8em;
+                }
+            }
+
+            .settings-insight {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1em;
+                height: 100%;
+                padding: 1em;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                color: var(--accent);
+                background: var(--accent-softer);
+
+                & > div {
+                    strong {
+                        color: var(--text-soft);
+                        font-size: 1em;
+                    }
+
+                    p {
+                        margin-top: .5em;
+                        color: var(--text-faint);
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+            @media (max-width: 540px) {
+                padding: 0.8em;
+            }
+        }
+    }
+}
