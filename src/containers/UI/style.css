@@ -1,0 +1,104 @@
+.session-controls {
+    position: fixed;
+    left: 1em;
+    bottom: 1em;
+    display: none;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    width: min(620px, calc(100% - 2.2em));
+    gap: 1em;
+    padding: .5em .5em .5em 0.8em;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-md);
+    background: rgb(26 15 36 / 86%);
+    box-shadow: 0 1.2em 3.2em rgb(5 2 8 / 42%);
+    backdrop-filter: blur(1.2em);
+    font-size: 1em;
+    z-index: 999;
+
+    &.active {
+        display: grid;
+        animation: session-control-enter 360ms 180ms ease both;
+    }
+
+    .session-controls__status {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+
+        & > span {
+            display: inline-flex;
+            align-items: center;
+            gap: .5em;
+            color: var(--text-soft);
+            font-size: 0.9em;
+            font-weight: 630;
+
+            i {
+                width: 0.4em;
+                height: 0.4em;
+                border-radius: 50%;
+                background: var(--accent);
+                box-shadow: 0 0 0 0.3em var(--accent-soft);
+            }
+        }
+
+        small {
+            margin-top: .5em;
+            overflow: hidden;
+            color: var(--text-faint);
+            font-size: 0.8em;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            @media (orientation: portrait) {
+                display: none;
+            }
+        }
+    }
+
+    .secondary-button {
+        @media (orientation: portrait) {
+            min-height: 2.5em;
+            padding-inline: 0.8em;
+            font-size: 0.8em;
+        }
+    }
+
+    @media (orientation: portrait) {
+        bottom: 0.5em;
+        width: calc(100% - 1.4em);
+        grid-template-columns: 1fr auto;
+        min-height: 3.6em;
+        padding-left: 0.8em;
+    }
+}
+
+.editor-controls {
+    position: fixed;
+    right: 1.6em;
+    bottom: 1.5em;
+    display: none;
+
+    &.active {
+        display: block;
+        animation: panel-enter 320ms ease both;
+    }
+
+    @media (orientation: portrait) {
+        right: 0.8em;
+        bottom: 0.8em;
+    }
+}
+
+@keyframes session-control-enter {
+    from {
+        opacity: 0;
+        transform: translate(0%, 0.8em);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0%, 0);
+    }
+}
