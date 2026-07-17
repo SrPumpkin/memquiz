@@ -1,0 +1,162 @@
+.info-overlay {
+    font-size: 1em;
+
+    .info-window {
+        width: min(940px, 100%);
+
+        .info-window__body {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            height: 100%;
+            padding: 1em;
+            padding-top: 6em;
+            overflow: auto;
+
+            .info-intro {
+                display: flex;
+                flex-direction: row;
+                align-items: start;
+                gap: 0.8em;
+                padding: 1em;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-md);
+                background:
+                    radial-gradient(circle at 95% 0%, rgb(196 166 234 / 12%), transparent 36%),
+                    rgb(255 255 255 / 2%);
+
+                .info-intro__mark {
+                    display: grid;
+                    width: 58px;
+                    height: 58px;
+                    place-items: center;
+                    border: 1px solid var(--border-strong);
+                    border-radius: var(--radius-sm);
+                    color: var(--light-color);
+                    background: var(--decor-color);
+                    box-shadow: inset 0 1px rgb(255 255 255 / 5%);
+                }
+
+                & > div {
+                    h3 {
+                        color: var(--text);
+                        font-size: 1.3em;
+                        font-weight: 650;
+                    }
+
+                    p {
+                        max-width: 680px;
+                        margin-top: .5em;
+                        color: var(--text-muted);
+                        font-size: 0.8em;
+                        line-height: 1.65;
+                    }
+                }
+
+                @media (max-width: 680px) {
+                    grid-template-columns: 1fr;
+                    padding: 0.8em;
+                }
+            }
+
+            .info-flow {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 1em;
+
+                article {
+                    position: relative;
+                    min-height: 178px;
+                    padding: 0.8em;
+                    padding-bottom: 3em;
+                    overflow: hidden;
+                    border: 1px solid var(--border);
+                    border-radius: var(--radius-sm);
+                    background: rgb(12 6 18 / 24%);
+
+                    & > span {
+                        position: absolute;
+                        top: 1em;
+                        right: 1em;
+                        color: var(--text-faint);
+                        font-family: var(--font-mono);
+                        font-size: 1em;
+                        line-height: 1;
+                    }
+
+                    & > svg {
+                        color: var(--accent);
+                    }
+
+                    h4 {
+                        margin-top: 2em;
+                        color: var(--text-soft);
+                        font-size: 1em;
+                        font-weight: 650;
+                    }
+
+                    p {
+                        margin-top: 1em;
+                        color: var(--text-faint);
+                        font-size: 0.8em;
+                        line-height: 1.55;
+                    }
+
+                    a {
+                        position: absolute;
+                        bottom: 1em;
+                        right: 1em;
+                        text-decoration: underline;
+                        font-size: .8em;
+                    }
+
+                    @media (max-width: 680px) {
+                        min-height: 146px;
+                    }
+                }
+
+                @media (max-width: 680px) {
+                    grid-template-columns: 1fr;
+                }
+            }
+
+            .info-storage {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                gap: 1em;
+                padding: 1em;
+                border: 1px solid rgb(121 194 159 / 16%);
+                border-radius: var(--radius-sm);
+                background: var(--success-soft);
+
+                & > span {
+                    display: grid;
+                    width: 3em;
+                    height: 3em;
+                    place-items: center;
+                    border: 1px solid rgb(121 194 159 / 20%);
+                    border-radius: var(--radius-sm);
+                    color: var(--success);
+                }
+
+                & > div {
+                    strong {
+                        color: var(--text-soft);
+                        font-size: 1em;
+                    }
+
+                    p {
+                        margin-top: .5em;
+                        color: var(--text-muted);
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+            @media (orientation: portrait) {
+                padding-top: 5em;
+            }
+        }
+    }
+}
