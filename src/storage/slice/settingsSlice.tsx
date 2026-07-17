@@ -10,11 +10,10 @@ let initialState: Settings = {
 }
 
 if (window.localStorage.getItem('settings') !== null) {
-    // @ts-ignore
-    initialState = JSON.parse(window.localStorage.getItem('settings'))
+    initialState = JSON.parse(window.localStorage.getItem('settings')!) as Settings
 } else if (window.localStorage.getItem('questions') !== null) {
-    // @ts-ignore
-    initialState.amountQuestion = JSON.parse(window.localStorage.getItem('questions')).length
+    const storedQuestions: unknown[] = JSON.parse(window.localStorage.getItem('questions')!)
+    initialState.amountQuestion = storedQuestions.length
 }
 
 export const settingsSlice = createSlice({
