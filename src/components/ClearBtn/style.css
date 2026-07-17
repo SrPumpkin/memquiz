@@ -1,0 +1,84 @@
+.clear-control {
+    position: relative;
+    font-size: 1em;
+    width: 100%;
+
+    &.clear-control--active {
+        .clear-control__button {
+            border-color: rgb(216 135 155 / 42%);
+
+            .clear-control__progress {
+                animation: hold-to-clear var(--hold-duration) linear forwards;
+            }
+        }
+    }
+
+    .clear-control__button {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        gap: 1em;
+        padding: .5em 1.5em;
+        overflow: hidden;
+        border: 1px solid rgb(216 135 155 / 18%);
+        border-radius: var(--radius-sm);
+        color: var(--danger);
+        background: rgb(31 17 28 / 88%);
+        box-shadow: 0 0.8em 2em rgb(6 2 9 / 28%);
+        backdrop-filter: blur(0.8em);
+        text-align: left;
+        transition: border-color 180ms ease, background-color 180ms ease, transform 180ms ease;
+
+        &:hover:not(:disabled) {
+            border-color: rgb(216 135 155 / 30%);
+            background: rgb(42 22 36 / 94%);
+            transform: translateY(-1px);
+        }
+
+        &:disabled {
+            color: var(--text-faint);
+            border-color: var(--border);
+            opacity: 0.62;
+        }
+
+        .clear-control__progress {
+            position: absolute;
+            inset: auto 0 0;
+            z-index: 1;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, rgb(216 135 155 / 8%), rgb(216 135 155 / 20%));
+        }
+
+        & > svg {
+            position: relative;
+            z-index: 2;
+        }
+
+        & > span:not(.clear-control__progress) {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            z-index: 2;
+
+            & > b {
+                font-size: 0.8em;
+                font-weight: 650;
+            }
+
+            & > small {
+                margin-top: .5em;
+                color: var(--text-faint);
+                font-size: 0.8em;
+            }
+        }
+    }
+}
+
+@keyframes hold-to-clear {
+    to {
+        width: 100%;
+    }
+}
