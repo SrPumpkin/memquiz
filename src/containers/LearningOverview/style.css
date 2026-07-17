@@ -1,0 +1,218 @@
+.learning-overview {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1em;
+    margin-bottom: 1em;
+    font-size: 1em;
+
+    .overview-card {
+        position: relative;
+        display: grid;
+        grid-template-columns: 34px minmax(0, 1fr);
+        align-items: start;
+        min-height: 112px;
+        gap: 0.8em;
+        padding: 0.8em;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background:
+            linear-gradient(180deg, rgb(255 255 255 / 2.5%), transparent),
+            var(--surface-glass);
+        box-shadow: inset 0 1px rgb(255 255 255 / 2%);
+        backdrop-filter: blur(12px);
+        animation: panel-enter 420ms ease both;
+
+        &:nth-child(2) {
+            animation-delay: 55ms;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 110ms;
+        }
+
+        &:nth-child(4) {
+            animation-delay: 165ms;
+        }
+
+        .overview-card__icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--accent);
+            background: var(--accent-soft);
+
+            &.overview-card__icon--success {
+                color: var(--success);
+                background: var(--success-soft);
+            }
+
+            &.overview-card__icon--mastery {
+                color: var(--warning);
+                background: var(--warning-soft);
+            }
+
+            &.overview-card__icon--confidence {
+                color: var(--info);
+                background: rgb(169 149 208 / 12%);
+            }
+        }
+
+        .overview-card__copy {
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+
+            .overview-card__label {
+                overflow: hidden;
+                color: var(--text-muted);
+                font-size: 0.8em;
+                font-weight: 650;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            strong {
+                margin-top: .5em;
+                color: var(--text);
+                font-family: var(--font-mono);
+                font-size: 1.4em;
+                font-weight: 500;
+                line-height: 1.1;
+            }
+
+            .overview-card__meta {
+                margin-top: .5em;
+                overflow: hidden;
+                color: var(--text-faint);
+                font-size: 0.8em;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+        }
+
+        .overview-ring {
+            position: absolute;
+            right: 12px;
+            bottom: 10px;
+            width: 40px;
+            height: 40px;
+            transform: rotate(-90deg);
+
+            circle {
+                fill: none;
+                stroke-width: 3.5;
+            }
+
+            .overview-ring__track {
+                stroke: rgb(235 219 255 / 7%);
+            }
+
+            .overview-ring__value {
+                stroke: var(--success);
+                stroke-linecap: round;
+                animation: ring-reveal 900ms 180ms ease both;
+            }
+
+            @media (orientation: portrait) {
+                display: none;
+            }
+        }
+
+        .overview-spark {
+            position: absolute;
+            right: 13px;
+            bottom: 13px;
+            display: flex;
+            align-items: flex-end;
+            width: 52px;
+            height: 28px;
+            gap: .2em;
+
+            span {
+                width: 5px;
+                height: var(--bar-height);
+                min-height: 3px;
+                border-radius: 1px 1px 0 0;
+                background: linear-gradient(to top, var(--dark-color), var(--accent));
+                transform: scaleY(0);
+                transform-origin: bottom;
+                animation: spark-rise 620ms var(--bar-delay) ease forwards;
+            }
+
+            @media (orientation: portrait) {
+                display: none;
+            }
+        }
+
+        .overview-progress {
+            position: absolute;
+            right: 14px;
+            bottom: 18px;
+            width: 54px;
+            height: 4px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: rgb(235 219 255 / 7%);
+
+            span {
+                display: block;
+                width: var(--progress);
+                height: 100%;
+                border-radius: inherit;
+                background: var(--warning);
+                animation: progress-grow 760ms 160ms ease both;
+            }
+
+            @media (orientation: portrait) {
+                display: none;
+            }
+        }
+
+        .overview-card__signal {
+            position: absolute;
+            right: 21px;
+            bottom: 21px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--info);
+            box-shadow:
+                0 0 0 6px rgb(169 149 208 / 7%),
+                0 0 0 13px rgb(169 149 208 / 3%);
+
+            @media (orientation: portrait) {
+                display: none;
+            }
+        }
+
+        @media (orientation: portrait) {
+            min-height: 108px;
+            padding: 0.8em;
+        }
+    }
+
+    @media (orientation: portrait) {
+        display: none;
+    }
+
+    @media (orientation: portrait) {
+        gap: .5em;
+    }
+}
+
+@keyframes spark-rise {
+    to {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes progress-grow {
+    from {
+        width: 0;
+    }
+}
