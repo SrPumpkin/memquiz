@@ -1,0 +1,182 @@
+.editor {
+    display: none;
+    min-height: 520px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background:
+        linear-gradient(180deg, rgb(255 255 255 / 2.2%), transparent 180px),
+        var(--surface-glass);
+    box-shadow: var(--shadow-panel), inset 0 1px rgb(255 255 255 / 2%);
+    backdrop-filter: blur(14px);
+    font-size: 1em;
+
+    &.active {
+        display: block;
+        animation: panel-enter 420ms 80ms ease both;
+    }
+
+    .editor__header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1em;
+        padding: 1em 1em 1em;
+        border-bottom: 1px solid var(--border);
+
+        & > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: -webkit-fill-available;
+
+            h1 {
+                color: var(--text);
+                font-size: 1.5em;
+                font-weight: 660;
+            }
+
+            p {
+                color: var(--text-muted);
+                font-size: 0.8em;
+            }
+        }
+
+        .editor__summary {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+
+            .editor__summary-data {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1em;
+                padding: 1em;
+                border: 1px solid var(--border);
+                border-radius: var(--radius-sm);
+                color: var(--text-faint);
+                background: rgb(255 255 255 / 2%);
+                font-family: var(--font-mono);
+                font-size: 0.8em;
+                white-space: nowrap;
+
+                span {
+                    b {
+                        color: var(--text-soft);
+                        font-weight: 600;
+                    }
+                }
+
+                i {
+                    width: 1px;
+                    height: 13px;
+                    background: var(--border);
+                }
+            }
+
+            @media (orientation: portrait) {
+                width: 100%;
+                flex-direction: row;
+
+                .clear-control {
+                    width: 50%;
+                }
+
+                .editor__summary-data {
+                    width: 50%;
+                    height: -webkit-fill-available;
+                }
+            }
+        }
+
+        @media (max-width: 720px) {
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 0.8em;
+            padding: 0.8em;
+        }
+    }
+
+    .editor__list {
+        display: grid;
+        gap: .5em;
+        padding: 0.8em;
+
+        .quiz-li {
+            min-width: 0;
+        }
+
+        @media (max-width: 720px) {
+            padding: .5em;
+        }
+    }
+
+    .editor-empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 390px;
+        padding: 1em 1em;
+        text-align: center;
+
+        .editor-empty__visual {
+            position: relative;
+            width: 106px;
+            height: 92px;
+            margin-bottom: 1em;
+
+            span,
+            i {
+                position: absolute;
+                display: grid;
+                width: 72px;
+                height: 52px;
+                border: 1px solid var(--border-strong);
+                border-radius: var(--radius-sm);
+                background: var(--surface-elevated);
+                box-shadow: 0 12px 30px rgb(6 2 9 / 24%);
+            }
+
+            span {
+                inset: 4px auto auto 17px;
+                z-index: 3;
+                place-items: center;
+                color: var(--accent);
+            }
+
+            i {
+                &:nth-of-type(1) {
+                    inset: 19px auto auto 8px;
+                    z-index: 2;
+                    opacity: 0.7;
+                    transform: rotate(-7deg);
+                }
+
+                &:nth-of-type(2) {
+                    inset: 25px 6px auto auto;
+                    z-index: 1;
+                    opacity: 0.42;
+                    transform: rotate(7deg);
+                }
+            }
+        }
+
+        h2 {
+            margin-top: 0.8em;
+            color: var(--text-soft);
+            font-size: 1.2em;
+            font-weight: 640;
+        }
+
+        p {
+            max-width: 420px;
+            margin-top: .5em;
+            color: var(--text-faint);
+            font-size: 0.8em;
+            line-height: 1.6;
+        }
+    }
+}
