@@ -196,6 +196,10 @@
         }
     }
 
+    @media (max-width: 1600px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     @media (orientation: portrait) {
         display: none;
     }

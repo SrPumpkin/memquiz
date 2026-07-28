@@ -54,6 +54,12 @@
             width: 70%;
         }
 
+        @media (max-width: 1600px) {
+            .library-workspace {
+                width: 60%;
+            }
+        }
+
         @media (orientation: portrait) {
             flex-direction: column;
             width: 100%;
