@@ -1,21 +1,109 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#40275D" />
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+    />
+
+    <title>MemQuiz - Smart Memory Trainer That Adapts to You</title>
+
     <meta
             name="description"
-            content="MemQuiz - Create and test your memory with quizzes"
+            content="MemQuiz helps you remember any information. It notices what you forget, brings it back more often, and gives less attention to what you already know."
     />
-    <link rel="apple-touch-icon" href="/logo.png" />
-    <link rel="manifest" href="/manifest.json" />
-    <title>MemQuiz</title>
+    <meta name="application-name" content="MemQuiz" />
+    <meta name="theme-color" content="#40275d" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+            name="robots"
+            content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MemQuiz" />
+    <meta
+            property="og:title"
+            content="MemQuiz — Smart Memory Trainer That Adapts to You"
+    />
+    <meta
+            property="og:description"
+            content="Learn anything more efficiently. MemQuiz focuses your practice on the information that is hardest for you to remember."
+    />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta
+            name="twitter:title"
+            content="MemQuiz — Smart Memory Trainer That Adapts to You"
+    />
+    <meta
+            name="twitter:description"
+            content="Learn anything more efficiently. MemQuiz focuses your practice on the information that is hardest for you to remember."
+    />
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": "#website",
+                    "name": "MemQuiz",
+                    "description": "A smart memory trainer that adapts to what each person remembers and forgets.",
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "WebPage",
+                    "@id": "#webpage",
+                    "name": "MemQuiz — Smart Memory Trainer That Adapts to You",
+                    "description": "MemQuiz helps you remember any information by focusing your practice on what is hardest for you to remember.",
+                    "inLanguage": "en",
+                    "isPartOf": {
+                        "@id": "#website"
+                    },
+                    "mainEntity": {
+                        "@id": "#application"
+                    }
+                },
+                {
+                    "@type": "WebApplication",
+                    "@id": "#application",
+                    "name": "MemQuiz",
+                    "description": "MemQuiz is a personal memory trainer that adapts to each user. It identifies the information that is hardest to remember, brings it back more often, and gives familiar material less attention.",
+                    "applicationCategory": "EducationalApplication",
+                    "applicationSubCategory": "Adaptive memory trainer",
+                    "operatingSystem": "Any",
+                    "browserRequirements": "Requires JavaScript and a modern web browser.",
+                    "inLanguage": "en",
+                    "isAccessibleForFree": true,
+                    "featureList": [
+                        "Adapts practice to your memory",
+                        "Finds information you are most likely to forget",
+                        "Brings difficult material back more often",
+                        "Repeats uncertain material before the session ends",
+                        "Shows what you know and what needs more work",
+                        "Stores your learning data in your browser"
+                    ],
+                    "educationalUse": [
+                        "Learning new information",
+                        "Remembering difficult material",
+                        "Preparing for exams",
+                        "Refreshing existing knowledge"
+                    ]
+                }
+            ]
+        }
+    </script>
 </head>
 <body>
-<noscript>You need to enable JavaScript to run this app.</noscript>
+<noscript>MemQuiz requires JavaScript to work.</noscript>
+
 <div id="main"></div>
+
 <script type="module" src="/src/index.tsx"></script>
 </body>
 </html>
